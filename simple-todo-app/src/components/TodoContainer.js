@@ -1,5 +1,7 @@
 import React from "react";
 import TodoList from "./TodoList";
+import Header from "./Header";
+
 class TodoContainer extends React.Component {
 
     state = {
@@ -11,7 +13,7 @@ class TodoContainer extends React.Component {
             },
             {
                 id: 2,
-                title: "Developm website and add content",
+                title: "Development website and add content",
                 completed: false
             },
             {
@@ -22,10 +24,15 @@ class TodoContainer extends React.Component {
         ]
     };
 
+    handleChange = (id) => {
+        console.log("clicked", id);
+    };
+
     render(){
         return(
             <div>
-                <TodoList todos={this.state.todos} />
+                <Header />
+                <TodoList todos={this.state.todos} handleChangeProps={this.handleChange} />
             </div>
         );
     }
